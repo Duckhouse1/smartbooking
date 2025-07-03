@@ -1,49 +1,44 @@
-import { createContext, Dispatch, SetStateAction, useState } from "react"
-import { GrandComp } from "./grandchildComponent"
+import { createContext, Dispatch, SetStateAction, useContext} from "react"
 
-export interface ITextContext {
-    text: string;
-    setText: Dispatch<SetStateAction<string>>
+export interface ICurrentSite {
+    overskrift: string
+    setOverskrift: Dispatch<SetStateAction<string>>
 }
 
 // Create a default context (can be overwritten by provider)
-export const TextContext = createContext<ITextContext>({
-  text: "",
-  setText: () => {},
+
+export const CurrentSite = createContext<ICurrentSite>({
+    overskrift: "Home",
+    setOverskrift: () => {},
 });
 
 
 export const HeaderSection: React.FC = () => {
-    const [text, setText] = useState("")
 
-    const textChange = (written: string) => {
-        setText(written)
-    }
+
+    const {setOverskrift} = useContext(CurrentSite)
+
+
 
     return (
         <>
-            <TextContext.Provider value={{ text, setText }} >
                 <div className="headerSection">
                     <div className="left">
                         <h1>SMARTBOOKING</h1>
                     </div>
                     <div className="center" style={{ fontSize: "20px" }}>
-                        <p className="Button">HOME</p>
+                        <button onClick={() => setOverskrift("Home")} className="Button">HOME</button>
                         <p className="Button">ABOUT</p>
-                        <p className="Button">PRIZES</p>
+                        <button onClick={() => setOverskrift("Prize")} className="Button">PRIZES</button>
                         <p className="Button">CONTACT</p>
-                        <input type="text" onChange={(e) => textChange(e.target.value)} />
                     </div>
                     <div className="right">
                         <button className="Button">LINK</button>
-
                     </div>
                 </div>
-
                 <div className='headline'>
-                    <GrandComp></GrandComp>
                 </div>
-            </TextContext.Provider>
+
         </>
     )
 }

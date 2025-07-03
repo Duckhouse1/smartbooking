@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import './App.css';
-import { HeaderSection } from './components/headerSection';
-import { BodySection } from './components/bodySection';
+import { CurrentSite, HeaderSection } from './components/headerSection';
+import { HomeSection } from './components/Sites/Home';
+import { PrizeSection } from './components/Sites/Prizes';
 function App() {
   const [currentSite,setCurrentSite] = useState("Home")
+  
   return (
-    
+    <CurrentSite.Provider value={{overskrift: currentSite, setOverskrift: setCurrentSite}} >
     <div className="App">
       <HeaderSection/>
-      <BodySection/>
-      {currentSite == "Home" && (
-        <Home/>
+      {currentSite === "Home" && (
+        <HomeSection/>
       )}
-      {currentSite == "Prize" && (
-        <Prizes/>
+      {currentSite === "Prize" && (
+        <PrizeSection/>
       )}
     </div>
+    </CurrentSite.Provider>
   );
 }
 
