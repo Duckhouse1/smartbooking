@@ -3,6 +3,8 @@ export const PrizeSection: React.FC = () => {
         <div>
             <h1>Prize</h1>
             <p>Beskrivelse</p>
+            <p>prize</p>
+            <p>p</p>
         </div>
     )
 }
