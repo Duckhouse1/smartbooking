@@ -1,6 +1,9 @@
 
 
 export const HeaderSection: React.FC = () => {
+    
+
+
     return (
         <>
             <div className="headerSection">
@@ -12,6 +15,7 @@ export const HeaderSection: React.FC = () => {
                     <p className="Button">ABOUT</p>
                     <p className="Button">PRIZES</p>
                     <p className="Button">CONTACT</p>
+                    
                 </div>
                 <div className="right">
                     <button className="Button">LINK</button>
@@ -20,7 +24,7 @@ export const HeaderSection: React.FC = () => {
             </div>
 
             <div className='headline'>
-                {/* Content below the header */}
+                
             </div>
         </>
     )
