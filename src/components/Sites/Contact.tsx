@@ -1,13 +1,18 @@
-export const HomeSection: React.FC = () => {
-    return (
+import React from "react";
+
+
+
+export const ContactSite: React.FC = () => {
+
+
+    return(
         <div style={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
         }}>
-            <h1>HOME</h1>
-            <p>Dette er Home page Sited</p>
+            <h1>CONTACT</h1>
         </div>
     )
 }

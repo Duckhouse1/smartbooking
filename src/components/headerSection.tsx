@@ -8,7 +8,7 @@ export interface ICurrentSite {
 // Create a default context (can be overwritten by provider)
 
 export const CurrentSite = createContext<ICurrentSite>({
-    overskrift: "Home",
+    overskrift: "HOME",
     setOverskrift: () => {},
 });
 
@@ -24,13 +24,14 @@ export const HeaderSection: React.FC = () => {
         <>
                 <div className="headerSection">
                     <div className="left">
-                        <h1>SMARTBOOKING</h1>
+                        <button onClick={() => setOverskrift("HOME")} style={{fontSize:"30px"}} className="Button">SMARTBOOKING</button>
+                        {/* <h1>SMARTBOOKING</h1> */}
                     </div>
                     <div className="center" style={{ fontSize: "20px" }}>
-                        <button onClick={() => setOverskrift("Home")} className="Button">HOME</button>
-                        <p className="Button">ABOUT</p>
-                        <button onClick={() => setOverskrift("Prize")} className="Button">PRIZES</button>
-                        <p className="Button">CONTACT</p>
+                        <button onClick={() => setOverskrift("HOME")} className="Button">HOME</button>
+                        <button onClick={() => setOverskrift("ABOUT")}className="Button">ABOUT</button>
+                        <button onClick={() => setOverskrift("PRIZE")} className="Button">PRIZES</button>
+                        <button onClick={() => setOverskrift("CONTACT")}className="Button">CONTACT</button>
                     </div>
                     <div className="right">
                         <button className="Button">LINK</button>
